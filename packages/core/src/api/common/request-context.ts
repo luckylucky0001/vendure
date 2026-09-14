@@ -48,7 +48,7 @@ interface RequestContextStore {
 }
 
 interface RequestWithStores extends Request {
-    // eslint-disable-next-line @typescript-eslint/ban-types
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
     [REQUEST_CONTEXT_MAP_KEY]?: Map<Function, RequestContextStore>;
     [REQUEST_CONTEXT_KEY]?: RequestContextStore;
 }
@@ -82,7 +82,7 @@ export function internal_setRequestContext(
     // or controller (for REST).
     let item: RequestContextStore | undefined;
     if (executionContext && typeof executionContext.getHandler === 'function') {
-        // eslint-disable-next-line @typescript-eslint/ban-types
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
         const map = req[REQUEST_CONTEXT_MAP_KEY] || new Map();
         item = map.get(executionContext.getHandler());
         const ctxHasTransaction = Object.getOwnPropertySymbols(ctx).includes(TRANSACTION_MANAGER_KEY);
@@ -119,7 +119,7 @@ export function internal_getRequestContext(
 ): RequestContext {
     let item: RequestContextStore | undefined;
     if (executionContext && typeof executionContext.getHandler === 'function') {
-        // eslint-disable-next-line @typescript-eslint/ban-types
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
         const map = req[REQUEST_CONTEXT_MAP_KEY];
         item = map?.get(executionContext.getHandler());
         // If we have a ctx associated with the current handler (resolver function), we
