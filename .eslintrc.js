@@ -67,15 +67,15 @@ module.exports = {
         ],
         '@typescript-eslint/await-thenable': 'error',
         '@typescript-eslint/ban-ts-comment': 'off',
+        // Empty interfaces are the extension points for declaration merging, e.g. CustomOrderStates.
+        '@typescript-eslint/no-empty-object-type': ['error', { allowInterfaces: 'always' }],
         // Rules added to the recommended configs in typescript-eslint v8. Warn until existing code is cleaned up.
         '@typescript-eslint/no-array-delete': 'warn',
         '@typescript-eslint/no-base-to-string': 'warn',
         '@typescript-eslint/no-duplicate-type-constituents': 'warn',
-        '@typescript-eslint/no-empty-object-type': 'warn',
         '@typescript-eslint/no-redundant-type-constituents': 'warn',
         '@typescript-eslint/no-require-imports': 'warn',
         '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
-        '@typescript-eslint/no-unsafe-function-type': 'warn',
         '@typescript-eslint/only-throw-error': 'warn',
         '@typescript-eslint/prefer-promise-reject-errors': 'warn',
         '@typescript-eslint/consistent-type-assertions': 'error',
