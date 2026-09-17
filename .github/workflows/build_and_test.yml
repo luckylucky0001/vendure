@@ -57,7 +57,8 @@ jobs:
                   fi
                   changed=$(git diff --name-only "$(git merge-base "$base" HEAD)" HEAD)
 
-                  if echo "$changed" | grep -qE '^(packages/|package\.json|bun\.lock|bunfig\.toml)'; then
+                  # Workflow and composite action changes alter how CI runs, so they must run it too.
+                  if echo "$changed" | grep -qE '^(packages/|package\.json|bun\.lock|bunfig\.toml|\.github/(workflows|actions)/)'; then
                     echo "packages=true" >> "$GITHUB_OUTPUT"
                   else
                     echo "packages=false" >> "$GITHUB_OUTPUT"
