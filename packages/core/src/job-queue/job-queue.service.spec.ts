@@ -443,7 +443,8 @@ describe('JobQueueService', () => {
             expect((await getJob(testJob2_1)).state).toBe(JobState.RUNNING);
             expect((await getJob(testJob2_2)).state).toBe(JobState.RUNNING);
 
-            const bufferedJobs = testJobBufferStorageStrategy.getBufferedJobs(testJobBuffer.id);
+            // #5395: jobs must be stored under the buffer's declared id, not under `undefined`
+            const bufferedJobs = testJobBufferStorageStrategy.getBufferedJobs('test-job-buffer');
             expect(bufferedJobs.map(j => j.data)).toEqual(['hello', 'world']);
         });
 
