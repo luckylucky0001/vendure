@@ -51,6 +51,7 @@
         ],
         "@typescript-eslint/naming-convention": "off",
         "@typescript-eslint/no-empty-object-type": ["error", { "allowInterfaces": "always" }],
+        // typescript-eslint v8 raised these from warn to error in its recommended config. Keep them at the v5 level until existing code is cleaned up.
         "@typescript-eslint/no-explicit-any": "warn",
         "@typescript-eslint/no-unused-vars": "warn",
         "@typescript-eslint/consistent-type-definitions": "off",
