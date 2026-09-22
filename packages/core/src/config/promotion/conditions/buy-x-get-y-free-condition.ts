@@ -16,7 +16,7 @@ export const buyXGetYFreeCondition = new PromotionCondition({
         amountX: {
             type: 'int',
             defaultValue: 2,
-            ui: { component: '', min: 0 },
+            ui: { component: '', min: 1 },
         },
         variantIdsX: {
             type: 'ID',
