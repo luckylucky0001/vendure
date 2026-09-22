@@ -351,8 +351,8 @@ export class OrderModifier {
                     type: AdjustmentType.OTHER,
                     description: 'shipping cancellation',
                     amount: shippingLine.listPriceIncludesTax
-                        ? -shippingLine.discountedPrice
-                        : -shippingLine.discountedPriceWithTax,
+                        ? -shippingLine.discountedPriceWithTax
+                        : -shippingLine.discountedPrice,
                     data: {},
                 });
                 await this.connection.getRepository(ctx, ShippingLine).save(shippingLine, { reload: false });
