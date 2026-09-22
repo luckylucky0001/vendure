@@ -239,6 +239,7 @@ export class PromotionService {
         if (!hasPermission) {
             throw new ForbiddenError();
         }
+        const defaultChannel = await this.channelService.getDefaultChannel(ctx);
         const promotions = await this.connection.findByIdsInChannel(
             ctx,
             Promotion,
